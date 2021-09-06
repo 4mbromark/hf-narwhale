@@ -1,0 +1,24 @@
+.nw-toolbar-section {
+  margin: 20px 0px;
+  border-radius: 20px;
+  transition: all 0.2s ease-in-out 0s;
+  width: 30px;
+}
+.nw-toolbar-section:hover {
+  background-color: var(--nw-support-color);
+}
+
+.nw-toolbar-button {
+  width: 30px;
+  height: 30px;
+  line-height: 0px !important;
+  transition: all 0.2s ease-in-out 0s;
+}
+
+/* .nw-toolbar-section:hover > .nw-toolbar-button {
+  width: 40px;
+  height: 40px;
+} */
+/* .nw-toolbar-button:hover {
+  background-color: white;
+} */

@@ -1,0 +1,12 @@
+<app-base-dialog-toolbar [title]="title" [icon]="icon"></app-base-dialog-toolbar>
+
+<div [ngSwitch]="step">
+  <section *ngSwitchCase="stepValues.TYPE">
+    <app-type-selector></app-type-selector>
+  </section>
+
+  <section *ngSwitchCase="stepValues.COMMISSION">
+    <app-commission-editor></app-commission-editor>
+  </section>
+
+</div>

@@ -1,0 +1,15 @@
+<!-- <div class="hf-m10">
+  <app-commission-header *ngFor="let commission of commissionFilteredList"></app-commission-header>
+</div> -->
+
+<div class="hf-m10">
+  <mat-accordion>
+    <mat-expansion-panel #panel="matExpansionPanel" *ngFor="let commission of commissionList">
+      <mat-expansion-panel-header  [style.backgroundColor]="getHeaderColor(commission, panel)">
+        <app-commission-header class="hf-w100" [commission]="commission"></app-commission-header>
+      </mat-expansion-panel-header>
+
+      <app-commission-body></app-commission-body>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

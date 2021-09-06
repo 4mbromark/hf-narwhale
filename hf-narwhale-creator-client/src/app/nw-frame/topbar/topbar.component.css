@@ -1,0 +1,21 @@
+.nw-topbar {
+  height: 50px;
+  background-color: var(--nw-main-color);
+}
+
+.nw-topbar-logo {
+  font-family: Narwhale;
+  color: white;
+  font-size: 29px;
+  margin-left: 10px;
+}
+
+.nw-topbar-search-field, .nw-topbar-search-field:focus {
+  border: none;
+  outline-width: 0;
+  width: 80%;
+}
+
+.nw-topbar-search-menu {
+
+}

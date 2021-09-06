@@ -1,0 +1,17 @@
+.nw-topbar, .nw-content, .nw-content-fullpage {
+  position: absolute;
+  width: 100%;
+}
+.nw-topbar {
+  top: 0px;
+  z-index: 10;
+}
+.nw-content, .nw-content-fullpage {
+  bottom: 0px;
+}
+.nw-content {
+  top: 50px;
+}
+.nw-content-fullpage {
+  top: 0px;
+}

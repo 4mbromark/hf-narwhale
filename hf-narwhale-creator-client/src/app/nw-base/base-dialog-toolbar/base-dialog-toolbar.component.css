@@ -1,0 +1,11 @@
+
+.nw-dialog-base-toolbar {
+  width: 100% !important;
+  height: 50px !important;
+  color: white;
+  background-color: var(--nw-main-color);
+  font-weight: 400;
+}
+.nw-dialog-base-toolbar-icon {
+  margin-right: 20px;
+}

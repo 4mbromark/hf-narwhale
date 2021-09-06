@@ -1,0 +1,47 @@
+<mat-button-toggle-group class="hf-w100 hf-m10" appearance="legacy" #sections="matButtonToggleGroup"
+  [value]="sectionValues.RECAP" style="flex-wrap: wrap;">
+
+  <span class="hf-spacer"></span>
+
+  <mat-button-toggle *ngFor="let section of sectionList" [value]="section.tag">
+    <fa-icon [icon]="section.icon" size="lg" style="padding-right: 10px;"></fa-icon>
+    <span>{{ section.title | translate }}</span>
+  </mat-button-toggle>
+
+  <span class="hf-spacer"></span>
+
+  <!--<mat-button-toggle value="close" style="background-color: red; color: white; font-weight: 500;"
+    title="Chiudi Informazioni">
+    <fa-icon icon="times" size="lg" style="padding-right: 10px;"></fa-icon>
+    <span>Chiudi</span>
+  </mat-button-toggle> -->
+</mat-button-toggle-group>
+
+<mat-divider></mat-divider>
+
+<div class="hf-flex-center" [ngSwitch]="sections.value || sectionValues.RECAP">
+  <section *ngSwitchCase="sectionValues.ORDER">
+    <app-body-order></app-body-order>
+  </section>
+  <section *ngSwitchCase="sectionValues.CUSTOMER">
+
+  </section>
+  <section *ngSwitchCase="sectionValues.RECAP">
+
+  </section>
+  <section *ngSwitchCase="sectionValues.ACTIONS">
+
+  </section>
+  <section *ngSwitchCase="sectionValues.PAYMENT">
+
+  </section>
+  <section *ngSwitchCase="sectionValues.MESSAGES">
+
+  </section>
+  <section *ngSwitchCase="sectionValues.NOTES">
+
+  </section>
+  <section *ngSwitchCase="sectionValues.RESOURCES">
+
+  </section>
+</div>

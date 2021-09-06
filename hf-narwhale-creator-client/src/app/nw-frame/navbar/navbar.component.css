@@ -1,0 +1,72 @@
+.nw-navbar-button, .nw-navbar-button-selected {
+  width: 100%;
+  min-width: unset !important;
+  text-align: left;
+  padding: 0px; /** era 5 */
+  font-size: medium;
+  color: dimgrey;
+  border-radius: 0px !important;
+}
+.nw-navbar-button:hover {
+  color: black;
+  background-color: var(--nw-support-color);
+}
+.nw-navbar-button-selected {
+  color: var(--nw-main-color);
+}
+
+.nw-navbar-button-selected-outbox {
+  border-right: 2px solid var(--nw-main-color);
+  background-color: var(--nw-support-color);
+  /*border-radius: 5px;*/
+}
+
+.nw-navbar-button-icon {
+  margin-right:20px;
+  margin-left:6px;
+}
+.nw-navbar-button-icon-not-extended {
+  margin-left:5px;
+}
+.nw-navbar-button-icon-selected {
+  color: var(--nw-main-color);
+}
+
+.nw-navbar-selected-thing {
+  padding: 5px;
+}
+.nw-navbar-selected-thing-not {
+  padding: 5px;
+  color: white;
+}
+
+.leftbar-bottom-line {
+  width: 100%;
+  padding: 0px 8px !important;
+  min-width: unset !important;
+  border-radius: 0px;
+  text-align: right;
+}
+.leftbar-bottom-line:hover {
+  color: black;
+  background-color: white;
+}
+
+.project-button {
+  width: 100% !important;
+  text-align: left;
+  padding: 0px 5px;
+  font-size: medium;
+  color: dimgrey;
+  border-radius: 0px !important;
+}
+.project-button:hover:enabled {
+  color: black;
+  background-color: var(--nw-support-color);
+}
+
+.project-icon {
+  margin-right: 10px;
+}
+
+

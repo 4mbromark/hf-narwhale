@@ -1,0 +1,12 @@
+<div class="hf-row hf-flex-center hf-m10">
+  <button mat-button class="nw-new-commission-button"
+    *ngFor="let button of commissionTypeList" (click)="setType(button.tag);">
+    <div class="hf-column hf-flex-center">
+      <div>
+        <fa-icon [icon]="button.icon" size="4x"></fa-icon>
+      </div>
+
+      <span class="language-title">{{ button.title }}</span>
+    </div>
+  </button>
+</div>

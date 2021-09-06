@@ -1,0 +1,43 @@
+<!-- <div class="hf-w100 hf-flex-center nw-commission-header">
+  <app-header-status [commission]="commission" ></app-header-status>
+
+  <span class="hf-spacer"></span>
+
+  <app-header-customer></app-header-customer>
+
+  <span class="hf-spacer"></span>
+
+  <app-header-description [commission]="commission"></app-header-description>
+
+  <span class="hf-spacer"></span>
+  <span class="hf-spacer"></span>
+  <span class="hf-spacer"></span>
+
+  <app-header-monitor></app-header-monitor>
+
+  <span class="hf-spacer"></span>
+
+  <app-header-actions></app-header-actions>
+
+  <span class="hf-spacer"></span>
+</div>  -->
+
+<div class="hf-w100">
+  <mat-grid-list cols="4" rowHeight="50px">
+    <mat-grid-tile>
+      <app-header-status [commission]="commission" ></app-header-status>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <app-header-customer></app-header-customer>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <app-header-description [commission]="commission"></app-header-description>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <app-header-actions></app-header-actions>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

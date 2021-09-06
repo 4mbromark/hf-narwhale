@@ -1,0 +1,11 @@
+.nw-user-menu {
+  color: white;
+  border-radius: 20px;
+  font-weight: 400;
+}
+.nw-user-menu:hover {
+  color: var(--nw-main-color);
+  background-color: white;
+  font-weight: 500;
+  transition: var(--hf-transition-base);
+}
