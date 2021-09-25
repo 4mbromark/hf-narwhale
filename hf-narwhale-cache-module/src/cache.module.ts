@@ -3,7 +3,9 @@ import { CacheModule, Module } from '@nestjs/common';
 
 @Module({
     imports: [
-        CacheModule.register()
+        CacheModule.register({
+            ttl: 0
+        })
     ],
     providers: [
         CacheService

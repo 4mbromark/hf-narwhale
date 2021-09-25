@@ -1,0 +1,12 @@
+<div *ngFor="let action of commissionActionList" class="hf-100-100 hf-left">
+  <div [ngSwitch]="action.type">
+    <div *ngSwitchCase="commissionActionTypeValues.STATUS" class="hf-100-100 hf-row hf-p10"> <!-- [style.background]="isStatusError(action.status) ? errorBackgroundColorValue : ''" -->
+      <span>{{ action.insertDate | date:'dd/MM/yyyy - hh:mm:ss' }}</span>
+      <span class="hf-flex-center" style="width: 70px;">
+        <fa-icon [icon]="getStatus(action.status).icon" size="lg" [style.color]="isStatusError(action.status) ? getStatus(action.status).color : ''"></fa-icon>
+      </span>
+      <span>{{ getStatus(action.status).description | translate }}</span>
+      <span class="hf-spacer"></span>
+    </div>
+  </div>
+</div>

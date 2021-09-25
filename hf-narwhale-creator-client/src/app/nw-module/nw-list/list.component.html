@@ -3,13 +3,13 @@
 </div> -->
 
 <div class="hf-m10">
-  <mat-accordion>
-    <mat-expansion-panel #panel="matExpansionPanel" *ngFor="let commission of commissionList">
-      <mat-expansion-panel-header  [style.backgroundColor]="getHeaderColor(commission, panel)">
+  <mat-accordion #accordion="matAccordion" class="hf-100-100">
+    <mat-expansion-panel #panel="matExpansionPanel" *ngFor="let commission of commissionActiveList" class="hf-100-100">
+      <mat-expansion-panel-header (click)="panel.expanded ? selectCommission(commission) : selectCommission();" [style.backgroundColor]="getHeaderColor(commission, panel)">
         <app-commission-header class="hf-w100" [commission]="commission"></app-commission-header>
       </mat-expansion-panel-header>
 
-      <app-commission-body></app-commission-body>
+      <app-commission-body [commission]="commission"></app-commission-body>
     </mat-expansion-panel>
   </mat-accordion>
 </div>

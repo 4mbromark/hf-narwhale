@@ -1,3 +1,5 @@
+import { CommissionStatus } from 'hf-narwhale-common-module';
+import { CommissionType } from 'hf-narwhale-common-module';
 import { CreatorCommissionTemplate } from './creator-commission-template.entity';
 import { Customer } from './customer.entity';
 import { Column, Entity, JoinColumn, ManyToOne, OneToOne } from "typeorm";
@@ -8,6 +10,18 @@ import { HighFiveBaseEntity } from 'hf-database-module';
     name: 'NW_COMMISSION'
 })
 export class Commission extends HighFiveBaseEntity {
+
+    @OneToOne(() => Creator)
+    @JoinColumn({ name: "ID_CREATOR" })
+    creator: Creator
+
+    @OneToOne(() => Customer)
+    @JoinColumn({ name: "ID_CUSTOMER" })
+    customer: Creator
+
+    @OneToOne(() => CreatorCommissionTemplate)
+    @JoinColumn({ name: "ID_TEMPLATE" })
+    template: CreatorCommissionTemplate
 
     @Column({
         name: 'ID_CREATOR',
@@ -29,6 +43,14 @@ export class Commission extends HighFiveBaseEntity {
         nullable: false
     })
     idTemplate: number;
+
+    @Column({
+        name: 'TYPE',
+        type: 'varchar',
+        length: 20,
+        nullable: false
+    })
+    type: CommissionType;
 
     @Column({
         name: 'TITLE',
@@ -54,20 +76,12 @@ export class Commission extends HighFiveBaseEntity {
     deadline: Date;
 
     @Column({
-        name: 'SOURCE',
-        type: 'varchar',
-        length: 20,
-        nullable: false
-    })
-    source: string;
-
-    @Column({
         name: 'STATUS',
         type: 'varchar',
-        length: 20,
+        length: 30,
         nullable: false
     })
-    status: string;
+    status: CommissionStatus;
 
     @Column({
         name: 'PRIORITY',

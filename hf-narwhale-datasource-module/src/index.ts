@@ -17,6 +17,12 @@ import { Customer } from './entity/customer.entity';
 import { InformationSharingPolicy } from './entity/information-sharing-policy.entity';
 import { User } from './entity/user.entity';
 import { UserService } from './service/user.service';
+import { CommissionActionService } from './service/commission-action.service';
+import { CreatorDefaultInformationSharingPolicyService } from './service/creator-default-isp.service';
+import { CreatorSpecificInformationSharingPolicyService } from './service/creator-specific-isp.service';
+import { CustomerService } from './service/customer.service';
+import { CustomerDefaultInformationSharingPolicyService } from './service/customer-default-isp.service';
+import { CustomerSpecificInformationSharingPolicyService } from './service/customer-specific-isp.service';
 
 export {
     NarwhaleDatasourceModule,
@@ -39,6 +45,11 @@ export {
 
     UserService,
     CreatorService,
-    CommissionService
-
+    CustomerService,
+    CreatorDefaultInformationSharingPolicyService,
+    CreatorSpecificInformationSharingPolicyService,
+    CustomerDefaultInformationSharingPolicyService,
+    CustomerSpecificInformationSharingPolicyService,
+    CommissionService,
+    CommissionActionService
 }

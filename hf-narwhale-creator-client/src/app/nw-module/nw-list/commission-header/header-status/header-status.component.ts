@@ -1,6 +1,6 @@
 import { Commission } from './../../../../nw-object/nw/commission';
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { getDetail, Status, StatusDetail } from 'src/app/nw-object/status/status';
+import { getCommissionStatusDetail, CommissionStatus, CommissionStatusDetail } from 'src/app/nw-object/commission/commission-status';
 
 @Component({
   selector: 'app-header-status',
@@ -10,9 +10,9 @@ import { getDetail, Status, StatusDetail } from 'src/app/nw-object/status/status
 export class HeaderStatusComponent implements OnInit, OnChanges {
   @Input() commission: Commission;
 
-  public statusValues = Status;
+  public statusValues = CommissionStatus;
 
-  public statusDetail: StatusDetail;
+  public statusDetail: CommissionStatusDetail;
 
   constructor() { }
 
@@ -20,7 +20,7 @@ export class HeaderStatusComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    const statusDetail = getDetail(this.commission.status);
+    const statusDetail = getCommissionStatusDetail(this.commission.status);
     this.statusDetail = statusDetail;
   }
 

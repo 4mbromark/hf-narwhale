@@ -1,12 +1,22 @@
 <div class="hf-row hf-flex-center hf-m10">
-  <button mat-button class="nw-new-commission-button"
-    *ngFor="let button of commissionTypeList" (click)="setType(button.tag);">
+  <button mat-button class="nw-new-commission-type-button"
+    *ngFor="let button of commissionTypeList" (click)="selectButton(button);" [style.background]="button.tag === selectedButton.tag ? 'var(--nw-support-color)' : ''">
     <div class="hf-column hf-flex-center">
       <div>
         <fa-icon [icon]="button.icon" size="4x"></fa-icon>
       </div>
 
-      <span class="language-title">{{ button.title }}</span>
+      <span>{{ button.title | translate }}</span>
     </div>
   </button>
+</div>
+<div class="hf-column hf-flex-center">
+  <span>
+    {{ selectedButton.description | translate }}
+  </span>
+  <div class="hf-m20">
+    <button mat-raised-button class="nw-button" (click)="setType();">
+      Inizia
+    </button>
+  </div>
 </div>

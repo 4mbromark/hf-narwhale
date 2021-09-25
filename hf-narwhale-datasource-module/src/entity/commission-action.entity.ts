@@ -1,5 +1,5 @@
-import { Column, Entity, JoinColumn, ManyToOne } from "typeorm";
-import { Commission } from './commission.entity';
+import { CommissionStatus, CommissionActionType } from 'hf-narwhale-common-module';
+import { Column, Entity } from "typeorm";
 import { HighFiveBaseEntity } from 'hf-database-module';
 
 @Entity({
@@ -20,7 +20,15 @@ export class CommissionAction extends HighFiveBaseEntity {
         length: 20,
         nullable: false
     })
-    type: string;
+    type: CommissionActionType;
+
+    @Column({
+        name: 'STATUS',
+        type: 'varchar',
+        length: 30,
+        default: null
+    })
+    status: CommissionStatus;
 
     @Column({
         name: 'DESCRIPTION',

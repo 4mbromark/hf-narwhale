@@ -1,5 +1,6 @@
+import { Creator } from './creator.entity';
 import { HighFiveBaseEntity } from "hf-database-module";
-import { Column, Entity } from "typeorm";
+import { Column, Entity, JoinColumn, OneToOne } from "typeorm";
 
 @Entity({
     name: 'NW_USER'

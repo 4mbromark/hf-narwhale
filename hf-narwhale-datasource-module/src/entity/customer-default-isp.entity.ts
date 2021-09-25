@@ -8,6 +8,10 @@ import { HighFiveBaseEntity } from 'hf-database-module';
 })
 export class CustomerDefaultInformationSharingPolicy extends HighFiveBaseEntity {
 
+    @OneToOne(() => InformationSharingPolicy)
+    @JoinColumn({ name: "ID_ISP" })
+    isp: InformationSharingPolicy
+
     @Column({
         name: 'ID_ISP',
         type: 'bigint',
@@ -16,10 +20,6 @@ export class CustomerDefaultInformationSharingPolicy extends HighFiveBaseEntity 
     })
     idIsp: number;
 
-    @OneToOne(() => Customer, (Customer) => Customer.id)
-    @JoinColumn({
-        name: 'ID_CUSTOMER'
-    })
     @Column({
         name: 'ID_CUSTOMER',
         type: 'bigint',

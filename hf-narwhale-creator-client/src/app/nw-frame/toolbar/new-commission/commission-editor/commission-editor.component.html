@@ -1,10 +1,12 @@
 <mat-horizontal-stepper linear #stepper>
   <mat-step>
-    <form>
-      <ng-template matStepLabel>Fill out your name</ng-template>
-      <mat-form-field appearance="fill">
-        <mat-label>Name</mat-label>
-        <input matInput formControlName="firstCtrl" placeholder="Last name, First name" required>
+    <form class="hf-column">
+      <ng-template matStepLabel>Generali</ng-template>
+      <mat-form-field class="hf-m20">
+        <input matInput [(formControl)]="titleControl" maxlength="40" placeholder="Titolo" required>
+      </mat-form-field>
+      <mat-form-field class="hf-m20" style="width: 400px;">
+        <textarea matInput [(formControl)]="descriptionControl" rows="10" maxlength="1000" placeholder="Descrizione" style="resize: none;" required></textarea>
       </mat-form-field>
       <div>
         <button mat-button matStepperNext>Next</button>
@@ -13,24 +15,16 @@
   </mat-step>
   <mat-step>
     <form>
-      <ng-template matStepLabel>Fill out your address</ng-template>
+      <ng-template matStepLabel>Cliente</ng-template>
       <mat-form-field appearance="fill">
         <mat-label>Address</mat-label>
-        <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY"
+        <input matInput placeholder="Ex. 1 Main St, New York, NY"
                required>
       </mat-form-field>
       <div>
         <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
+        <button mat-button (click)="setCommission();">Next</button>
       </div>
     </form>
-  </mat-step>
-  <mat-step>
-    <ng-template matStepLabel>Done</ng-template>
-    <p>You are now done.</p>
-    <div>
-      <button mat-button matStepperPrevious>Back</button>
-      <button mat-button (click)="stepper.reset()">Reset</button>
-    </div>
   </mat-step>
 </mat-horizontal-stepper>

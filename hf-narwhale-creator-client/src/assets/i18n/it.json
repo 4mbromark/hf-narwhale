@@ -27,10 +27,39 @@
         "deliver": "Da spedire / inviare",
         "error": "Rifiutati / Cancellati"
       }
+    },
+    "new-commission": {
+      "type": {
+        "personal": {
+          "name": "Autocommissione",
+          "description": "Crea una commissione da utilizzare come promemoria per un lavoro privato."
+        },
+        "pre-agreed": {
+          "name": "Preconcordata",
+          "description": "Inserisci una commissione i cui dettagli sono già stati accordati con il cliente."
+        },
+        "manual": {
+          "name": "Manuale",
+          "description": "Commissione che non prevede l'interazione con il cliente finale."
+        }
+      }
+    }
+  },
+  "commission": {
+    "type": {
+      "personal": "Autocommissione"
     }
   },
   "status": {
     "details": {
+      "added": {
+        "title": "Commissione creata",
+        "description": "Commissione inserita"
+      },
+      "added-customer": {
+        "title": "Commissione ricevuta",
+        "description": "Commissione ricevuta dal cliente"
+      },
       "waiting-for-evaluation": {
         "title": "In attesa di valutazione",
         "description": "Commissione in attesa di valutazione"
@@ -50,6 +79,34 @@
       "request-refused": {
         "title": "Rifiutato",
         "description": "Commissione rifiutata"
+      },
+      "request-refused-customer": {
+        "title": "Rifiutato dal cliente",
+        "description": "Commissione rifiutata dal cliente"
+      },
+      "progress": {
+        "title": "In lavorazione",
+        "description": "Commissione attualmente in lavorazione"
+      },
+      "suspended": {
+        "title": "Sospeso",
+        "description": "Commissione momentaneamente sospesa"
+      },
+      "finished": {
+        "title": "Terminato",
+        "description": "Lavorazione della commissione terminata"
+      },
+      "canceled": {
+        "title": "Cancellato",
+        "description": "Commissione annullata"
+      },
+      "canceled-customer": {
+        "title": "Cancellato dal cliente",
+        "description": "Commissione annullata dal cliente"
+      },
+      "completed": {
+        "title": "Completato",
+        "description": "Commissione completata con successo"
       }
     }
   },

@@ -19,28 +19,35 @@
 
 <mat-divider></mat-divider>
 
-<div class="hf-flex-center" [ngSwitch]="sections.value || sectionValues.RECAP">
+<div class="hf-flex-center hf-m20" [ngSwitch]="sections.value || sectionValues.RECAP">
   <section *ngSwitchCase="sectionValues.ORDER">
     <app-body-order></app-body-order>
   </section>
+
   <section *ngSwitchCase="sectionValues.CUSTOMER">
 
   </section>
+
   <section *ngSwitchCase="sectionValues.RECAP">
 
   </section>
-  <section *ngSwitchCase="sectionValues.ACTIONS">
 
+  <section *ngSwitchCase="sectionValues.ACTIONS">
+    <app-body-actions [idCommission]="commission.id"></app-body-actions>
   </section>
+
   <section *ngSwitchCase="sectionValues.PAYMENT">
 
   </section>
+
   <section *ngSwitchCase="sectionValues.MESSAGES">
 
   </section>
+
   <section *ngSwitchCase="sectionValues.NOTES">
 
   </section>
+
   <section *ngSwitchCase="sectionValues.RESOURCES">
 
   </section>

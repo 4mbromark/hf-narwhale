@@ -10,6 +10,10 @@ import { HighFiveBaseEntity } from 'hf-database-module';
 @Unique('CREATOR_CUSTOM_ISP', ['idCreator', 'idCustomer'])
 export class CreatorSpecificInformationSharingPolicy extends HighFiveBaseEntity {
 
+    @OneToOne(() => InformationSharingPolicy)
+    @JoinColumn({ name: "ID_ISP" })
+    isp: InformationSharingPolicy
+
     @Column({
         name: 'ID_ISP',
         type: 'bigint',
@@ -25,10 +29,6 @@ export class CreatorSpecificInformationSharingPolicy extends HighFiveBaseEntity 
     })
     idCreator: number;
 
-    @ManyToOne(() => Customer, (Customer) => Customer.id)
-    @JoinColumn({
-        name: 'ID_CUSTOMER'
-    })
     @Column({
         name: 'ID_CUSTOMER',
         type: 'bigint',

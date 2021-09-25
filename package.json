@@ -20,6 +20,7 @@
     "hf-ds-module": "file:../hf-ds/hf-ds-module",
     "hf-logger-module": "file:../hf-axdevtool/modules/hf-logger-module",
     "hf-narwhale-cache-module": "file:hf-narwhale-cache-module",
+    "hf-narwhale-common-module": "file:hf-narwhale-common-module",
     "hf-narwhale-datasource-module": "file:hf-narwhale-datasource-module",
     "hf-narwhale-enviroment-module": "file:hf-narwhale-enviroment-module",
     "hf-narwhale-registry-module": "file:hf-narhwale-user-module",

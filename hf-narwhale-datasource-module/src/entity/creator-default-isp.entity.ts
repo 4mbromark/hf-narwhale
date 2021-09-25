@@ -8,6 +8,10 @@ import { HighFiveBaseEntity } from 'hf-database-module';
 })
 export class CreatorDefaultInformationSharingPolicy extends HighFiveBaseEntity {
 
+    @OneToOne(() => InformationSharingPolicy)
+    @JoinColumn({ name: "ID_ISP" })
+    isp: InformationSharingPolicy
+
     @Column({
         name: 'ID_ISP',
         type: 'bigint',

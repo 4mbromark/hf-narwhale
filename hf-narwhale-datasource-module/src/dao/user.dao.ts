@@ -14,11 +14,10 @@ export class UserDao extends HighFiveBaseDao<User> {
     }
 
     public async getByIdRegistry(idRegistry: number): Promise<User> {
-        const user = await this.usersRepository.findOne({
-            where: [
-                { idRegistry: idRegistry }
-            ]
-        })
+        const user = this.usersRepository.createQueryBuilder('user')
+        .where("user.idRegistry = :idRegistry", { idRegistry: idRegistry })
+        .getOne();
+
         return user;
     }
 }

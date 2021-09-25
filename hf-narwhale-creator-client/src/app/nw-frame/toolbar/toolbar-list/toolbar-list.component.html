@@ -1,0 +1,54 @@
+<div class="hf-column hf-flex-left">
+  <div class="hf-column hf-flex-center nw-toolbar-section">
+    <button mat-icon-button *ngFor="let button of statusFiltersButtons" class="nw-toolbar-button" (click)="setCommissionStatusFilter(button);">
+      <fa-icon [icon]="button.selected ? 'check-circle' : 'circle'" size="lg" [style.color]="button.color" [matTooltip]="button.tooltip | translate" matTooltipPosition="after"></fa-icon>
+    </button>
+  </div>
+
+  <!-- <div class="hf-column hf-flex-center" style="margin: 20px 0px;">
+  <fa-icon class="hf-m5" icon="check-circle" size="lg" style="color: green;"></fa-icon>
+  <fa-icon class="hf-m5" icon="exclamation-circle" size="lg" style="color: red;"></fa-icon>
+</div> -->
+
+  <div class="hf-column hf-flex-center nw-toolbar-section">
+    <button mat-icon-button class="nw-toolbar-button">
+      <fa-icon icon="arrow-up" size="lg" style="color: gray;"></fa-icon>
+    </button>
+    <button mat-icon-button class="nw-toolbar-button">
+      <fa-icon icon="arrow-down" size="lg" style="color: var(--nw-main-color);"></fa-icon>
+    </button>
+  </div>
+
+  <div class="hf-column hf-flex-center nw-toolbar-section">
+    <button mat-icon-button class="nw-toolbar-button">
+      <fa-icon icon="angle-double-up" size="lg" style="color: gray;"></fa-icon>
+    </button>
+    <button mat-icon-button class="nw-toolbar-button">
+      <fa-icon icon="angle-up" size="lg" style="color: gray;"></fa-icon>
+    </button>
+    <button mat-icon-button class="nw-toolbar-button">
+      <fa-icon icon="angle-down" size="lg" style="color: var(--nw-main-color);"></fa-icon>
+    </button>
+    <button mat-icon-button class="nw-toolbar-button">
+      <fa-icon icon="angle-double-down" size="lg" style="color: var(--nw-main-color);"></fa-icon>
+    </button>
+  </div>
+
+
+  <!--<div class="hf-column hf-flex-center nw-toolbar-section">
+    <button mat-icon-button class="nw-toolbar-button">
+      <fa-icon icon="check-circle" size="lg" style="color: var(--nw-main-color);"></fa-icon>
+    </button>
+    <button mat-icon-button class="nw-toolbar-button">
+      <fa-icon icon="exclamation-circle" size="lg" style="color: gray;"></fa-icon>
+    </button>
+  </div>-->
+
+  <span class="spacer"></span>
+
+  <div class="hf-column hf-flex-center nw-toolbar-section">
+    <button mat-icon-button class="nw-toolbar-button" (click)="openNewCommissionDialog();">
+      <fa-icon icon="plus" size="lg" style="color: var(--nw-main-color);"></fa-icon>
+    </button>
+  </div>
+</div>

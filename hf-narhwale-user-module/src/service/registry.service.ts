@@ -1,7 +1,7 @@
 import { HighFiveUser } from 'hf-ds-module';
 import { HighFiveAuthClient } from './../client/auth.client';
 import { HighFivePswdClient } from './../client/pswd.client';
-import { Injectable, InternalServerErrorException, NotFoundException } from "@nestjs/common";
+import { Injectable } from "@nestjs/common";
 import { HighFiveUserClient } from "../client/user.client";
 import { ExtractJwt } from "passport-jwt";
 
@@ -27,9 +27,9 @@ export class CentralRegistryService {
         return user;
     }
 
-    public async getUser(): Promise<HighFiveUser> {
-        const tk = await this.getTokenFromAuthHeader();
-        const user = await this.userClient.get(tk);
+    public async getUser(ptk?: string, id?: number): Promise<HighFiveUser> {
+        const tk = ptk || await this.getTokenFromAuthHeader();
+        const user = id ? await this.userClient.getById(tk, id) : await this.userClient.get(tk);
         return user;
     }
 

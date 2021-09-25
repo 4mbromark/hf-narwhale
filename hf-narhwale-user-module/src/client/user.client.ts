@@ -28,4 +28,13 @@ export class HighFiveUserClient {
         const response = await this.httpService.get(this.URL, config).toPromise();
         return response.data;
     }
+
+    public async getById(tk: string, id: number): Promise<HighFiveUser> {
+        const config = {
+            headers: { Authorization: `Bearer ` + tk }
+        };
+
+        const response = await this.httpService.get(this.URL + '/' + id, config).toPromise();
+        return response.data;
+    }
 }

@@ -1,36 +1,33 @@
+import { ToolbarType } from './toolbar.config';
+import { ListService } from './../../nw-module/nw-list/list.service';
 import { CreateCommissionComponent } from './new-commission/create-commission.component';
-import { StatusColor } from './../../nw-object/status/status';
+import { CommissionStatusColor } from '../../nw-object/commission/commission-status';
 import { BaseComponent } from './../../nw-base/base/base.component';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Commission } from 'src/app/nw-object/nw/commission';
 
 @Component({
   selector: 'app-toolbar',
   templateUrl: './toolbar.component.html',
   styleUrls: ['./toolbar.component.css']
 })
-export class ToolbarComponent extends BaseComponent implements OnInit {
+export class ToolbarComponent implements OnInit {
 
-  statusColor = StatusColor;
+  public toolbarTypeValues = ToolbarType;
+
+  public toolbarType: ToolbarType;
 
   constructor(
-    private dialog: MatDialog
-  ) {
-    super();
-  }
+    private listService: ListService
+  ) {}
 
   ngOnInit(): void {
-  }
-
-  public openNewCommissionDialog(): void {
-    this.dialog.open(CreateCommissionComponent, {
-      /*width: '50%',
-      height: '80%',*/
-      data: {
-        icon: 'plus',
-        title: 'Nuova commissione'
-      }
+    this.listService.getSelectedCommission().subscribe((commission: Commission) => {
+      commission ? this.toolbarType = ToolbarType.COMMISSION : this.toolbarType = ToolbarType.COMMISSION_LIST;
     });
   }
+
+
 
 }

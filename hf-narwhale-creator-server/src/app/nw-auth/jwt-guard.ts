@@ -31,6 +31,7 @@ export class JwtGuard extends AuthGuard() {
 
         // const tk = ExtractJwt.fromAuthHeaderAsBearerToken();
         const user = await this.centralRegistryService.verifyToken(tk);
+        request.user = user;
         return user ? true : false;
     }
 }

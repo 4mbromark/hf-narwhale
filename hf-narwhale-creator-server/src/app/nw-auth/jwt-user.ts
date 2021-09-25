@@ -6,3 +6,14 @@ export const LoggedUser = createParamDecorator(
     return request.user;
   },
 );
+
+export const ProvidedToken = createParamDecorator(
+  (data: unknown, ctx: ExecutionContext) => {
+    const request = ctx.switchToHttp().getRequest();
+    const { headers } = request;
+    return headers.authorization.split(' ')[1];
+  },
+);
+
+
+

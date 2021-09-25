@@ -7,6 +7,12 @@ import { User } from "./user.entity";
 })
 export class Customer extends HighFiveBaseEntity {
 
+    @OneToOne(() => User)
+    @JoinColumn({ name: "ID_USER" })
+    user: User
+    idRegistry: number;
+    blocked: boolean;
+
     @Column({
         name: 'ID_USER',
         type: 'bigint',

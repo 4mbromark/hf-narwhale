@@ -16,11 +16,10 @@ export class CommissionDao extends HighFiveBaseDao<Commission> {
     }
 
     public async getByIdCreator(idCreator: number): Promise<Commission[]> {
-        const commissionList = await this.commissionsRepository.find({
-            where: [
-                { idCreator: idCreator }
-            ]
-        })
+        const commissionList = this.commissionsRepository.createQueryBuilder('commission')
+        .where("commission.idCreator = :idCreator", { idCreator: idCreator })
+        .getMany();
+
         return commissionList;
     }
 }

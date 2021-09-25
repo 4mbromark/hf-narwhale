@@ -11,15 +11,21 @@ import { CommissionTypeButton, COMMISSION_TYPE_LIST } from '../create-commission
 export class TypeSelectorComponent implements OnInit {
 
   public commissionTypeList: CommissionTypeButton[] = COMMISSION_TYPE_LIST;
+  public selectedButton: CommissionTypeButton;
 
   constructor(
     private createCommissionService: CreateCommissionService
   ) { }
 
   ngOnInit(): void {
+    this.selectedButton = COMMISSION_TYPE_LIST[0];
   }
 
-  public setType(type: CommissionType): void {
-    this.createCommissionService.setType(type);
+  public selectButton(button: CommissionTypeButton): void {
+    this.selectedButton = button;
+  }
+
+  public setType(): void {
+    this.createCommissionService.setType(this.selectedButton.tag as CommissionType);
   }
 }

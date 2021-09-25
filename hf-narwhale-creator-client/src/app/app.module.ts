@@ -1,7 +1,7 @@
 import { BaseDialogToolbarComponent } from './nw-base/base-dialog-toolbar/base-dialog-toolbar.component';
 import { BaseDialogComponent } from './nw-base/base-dialog/base-dialog.component';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -58,6 +58,11 @@ import { CreateCommissionComponent } from './nw-frame/toolbar/new-commission/cre
 import { TypeSelectorComponent } from './nw-frame/toolbar/new-commission/type-selector/type-selector.component';
 import { CommissionEditorComponent } from './nw-frame/toolbar/new-commission/commission-editor/commission-editor.component';
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
+import { InsertWithStatusComponent } from './nw-frame/toolbar/new-commission/insert-with-status/insert-with-status.component';
+import { BodyActionsComponent } from './nw-module/nw-list/commission-body/body-actions/body-actions.component';
+import { DatePipe } from '@angular/common';
+import { BodyCustomerComponent } from './nw-module/nw-list/commission-body/body-customer/body-customer.component';
+import { ToolbarListComponent } from './nw-frame/toolbar/toolbar-list/toolbar-list.component';
 
 
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
@@ -85,7 +90,11 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     BodyOrderComponent,
     CreateCommissionComponent,
     TypeSelectorComponent,
-    CommissionEditorComponent
+    CommissionEditorComponent,
+    InsertWithStatusComponent,
+    BodyActionsComponent,
+    BodyCustomerComponent,
+    ToolbarListComponent
   ],
   imports: [
     BrowserModule,
@@ -124,7 +133,8 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthenticationInterceptorService, multi: true },
-    { provide: STEPPER_GLOBAL_OPTIONS, useValue: { showError: true } }
+    { provide: STEPPER_GLOBAL_OPTIONS, useValue: { showError: true } },
+    // { provide: LOCALE_ID, useValue: navigator.language }
   ],
   bootstrap: [AppComponent]
 })

@@ -1,5 +1,9 @@
+import { CommissionStatus } from 'src/app/nw-object/commission/commission-status';
+import { ApiUrl } from 'src/app/nw-object/url/url';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Commission } from './../../../nw-object/nw/commission';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { CreateCommissionData, CommissionType, CreateCommissionStep } from './create-commission.config';
+import { CreateCommissionData, CommissionType, CreateCommissionStep, CommissionTypeButton } from './create-commission.config';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -11,12 +15,15 @@ export class CreateCommissionService {
 
   private data: CreateCommissionData;
 
-  constructor() { }
+  constructor(
+    private http: HttpClient
+  ) { }
 
   public prepareService(): void {
     this.data = {
       type: null,
-      commission: null
+      commission: null,
+      status: null
     };
     this.setStep(CreateCommissionStep.TYPE);
   }
@@ -25,12 +32,39 @@ export class CreateCommissionService {
     return this.step.asObservable();
   }
 
-  public setStep(step: CreateCommissionStep): void {
+  private setStep(step: CreateCommissionStep): void {
     this.step.next(step);
+  }
+
+  public getType(): CommissionType {
+    return this.data.type;
   }
 
   public setType(type: CommissionType): void {
     this.data.type = type;
     this.setStep(CreateCommissionStep.COMMISSION);
+  }
+
+  public setCommission(commission: Commission): void {
+    this.data.commission = commission;
+    this.setStep(CreateCommissionStep.STATUS);
+  }
+
+  public setStatus(status: CommissionStatus): void {
+    this.data.status = status;
+    this.insert();
+  }
+
+  private insert(): Promise<void> {
+    return new Promise((resolve, reject) => {
+      this.http.put(ApiUrl.COMMISSION_INSERT, this.data).subscribe(
+        () => {
+          resolve();
+        },
+        (error: HttpErrorResponse) => {
+          reject(error);
+        }
+      );
+    });
   }
 }

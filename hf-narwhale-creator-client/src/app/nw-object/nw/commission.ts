@@ -1,11 +1,16 @@
-import { Status } from '../status/status';
+import { DatabaseObject } from './database-object';
+import { CommissionType } from 'src/app/nw-frame/toolbar/new-commission/create-commission.config';
+import { CommissionStatus } from '../commission/commission-status';
 
-export class Commission {
+export class Commission extends DatabaseObject {
+
   idCreator: number;
 
   idCustomer: number;
 
   idTemplate: number;
+
+  type: CommissionType;
 
   title: string;
 
@@ -13,9 +18,7 @@ export class Commission {
 
   deadline: Date;
 
-  source: string;
-
-  status: Status;
+  status: CommissionStatus;
 
   priority: string;
 }

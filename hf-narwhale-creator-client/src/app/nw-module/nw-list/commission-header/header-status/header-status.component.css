@@ -1,6 +1,6 @@
 .nw-commission-header-status {
   padding: 10px 20px;
-  border-radius: 10px;
+  border-radius: 50px;
   transition: var(--hf-transition-base);
 }
 .nw-commission-header-status:hover {

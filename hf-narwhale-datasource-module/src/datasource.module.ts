@@ -1,3 +1,10 @@
+import { CreatorSpecificInformationSharingPolicyService } from './service/creator-specific-isp.service';
+import { CreatorDefaultInformationSharingPolicyService } from './service/creator-default-isp.service';
+import { CustomerService } from './service/customer.service';
+import { CreatorSpecificInformationSharingPolicyDao } from './dao/creator-specific-isp.dao';
+import { CustomerDao } from './dao/customer.dao';
+import { CommissionActionService } from './service/commission-action.service';
+import { CommissionActionDao } from './dao/commission-action.dao.';
 import { CommissionService } from './service/commission.service';
 import { CreatorDao } from './dao/creator.dao';
 import { UserDao } from './dao/user.dao';
@@ -24,6 +31,11 @@ import { Commission } from './entity/commission.entity';
 import { HighFiveDatabaseModule } from 'hf-database-module';
 import { NarwhaleEnviromentModule } from 'hf-narwhale-enviroment-module';
 import { CommissionDao } from './dao/commission.dao';
+import { CreatorDefaultInformationSharingPolicyDao } from './dao/customer-default-isp.dao';
+import { CustomerDefaultInformationSharingPolicyService } from './service/customer-default-isp.service';
+import { CustomerSpecificInformationSharingPolicyService } from './service/customer-specific-isp.service';
+import { CustomerDefaultInformationSharingPolicyDao } from './dao/creator-default-isp.dao';
+import { CustomerSpecificInformationSharingPolicyDao } from './dao/customer-specific-isp.dao';
 
 @Global()
 @Module({
@@ -75,20 +87,42 @@ import { CommissionDao } from './dao/commission.dao';
         ])
     ],
     providers: [
+        /** SERVICES */
         UserService,
         CreatorService,
+        CustomerService,
+
+        CreatorDefaultInformationSharingPolicyService,
+        CreatorSpecificInformationSharingPolicyService,
+        CustomerDefaultInformationSharingPolicyService,
+        CustomerSpecificInformationSharingPolicyService,
 
         CommissionService,
+        CommissionActionService,
 
+        /** DAO */
         UserDao,
         CreatorDao,
+        CustomerDao,
+
+        CreatorDefaultInformationSharingPolicyDao,
+        CreatorSpecificInformationSharingPolicyDao,
+        CustomerDefaultInformationSharingPolicyDao,
+        CustomerSpecificInformationSharingPolicyDao,
         
-        CommissionDao
+        CommissionDao,
+        CommissionActionDao,
     ],
     exports: [
         UserService,
         CreatorService,
-        CommissionService,      
+        CustomerService,
+        CreatorDefaultInformationSharingPolicyService,
+        CreatorSpecificInformationSharingPolicyService,
+        CustomerDefaultInformationSharingPolicyService,
+        CustomerSpecificInformationSharingPolicyService,
+        CommissionService,   
+        CommissionActionService   
     ]
 })
 export class NarwhaleDatasourceModule { }

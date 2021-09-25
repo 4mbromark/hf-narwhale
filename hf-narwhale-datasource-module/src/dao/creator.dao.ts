@@ -9,32 +9,28 @@ import { HighFiveBaseDao } from 'hf-database-module';
 export class CreatorDao extends HighFiveBaseDao<Creator> {
 
     constructor(
-        @InjectRepository(Creator) private creatorsRepository: Repository<Creator>,
+        @InjectRepository(Creator) private creatorsRepository: Repository<Creator>
     ) {
         super(creatorsRepository);
     }
 
     public async getByIdUser(idUser: number): Promise<Creator> {
-        const creator = await this.creatorsRepository.findOne({
-            where: [
-                { idUser: idUser }
-            ]
-        })
+        const creator = this.creatorsRepository.createQueryBuilder('creator')
+        .leftJoinAndSelect("creator.user", "user")
+        .select(["creator.id", "creator.idUser", "user.idRegistry", "user.blocked", "creator.insertDate", "creator.updateDate"])
+        .where("creator.idUser = :idUser", { idUser: idUser })
+        .getOne();
+
         return creator;
     }
 
     public async getByIdRegistry(idRegistry: number): Promise<Creator> {
-        const creator = await this.creatorsRepository.findOne({
-            join: {
-                alias: "creator",
-                leftJoin: {
-                    user: "creator.idUser"
-                }
-            },
-            where: [
-                { "user.idRegistry": idRegistry }
-            ]
-        })
+        const creator = this.creatorsRepository.createQueryBuilder('creator')
+        .leftJoinAndSelect("creator.user", "user")
+        .select(["creator.id", "creator.idUser", "user.idRegistry", "user.blocked", "creator.insertDate", "creator.updateDate"])
+        .where("user.idRegistry = :idRegistry", { idRegistry: idRegistry })
+        .getOne();
+
         return creator;
     }
 }
