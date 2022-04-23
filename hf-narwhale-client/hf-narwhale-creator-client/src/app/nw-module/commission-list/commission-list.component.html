@@ -1,0 +1,46 @@
+<!-- <div class="hf-m10">
+  <app-commission-header *ngFor="let commission of commissionFilteredList"></app-commission-header>
+</div> -->
+
+<!-- <div class="hf-100-100">
+  <mat-accordion #accordion="matAccordion" *ngIf="commissionList">
+    <mat-expansion-panel #panel="matExpansionPanel" [ngClass]="{ 'hf-h100': panel.expanded }"
+      *ngFor="let commission of commissionList">
+      <mat-expansion-panel-header (click)="panel.expanded ? selectCommission(commission) : selectCommission();"
+        [style.backgroundColor]="getHeaderColor(commission, panel)">
+        <app-commission-header class="hf-w100" [commission]="commission"></app-commission-header>
+      </mat-expansion-panel-header>
+
+      <app-commission-body [commission]="commission"></app-commission-body>
+    </mat-expansion-panel>
+  </mat-accordion>
+
+  <app-standard-spinner *ngIf="!commissionList"></app-standard-spinner>
+</div> -->
+
+<as-split class="hf-100-100 mat-elevation-z8" useTransition="true" [ngClass]="{ 'nw-disabled': loading }"
+  (gutterClick)="openBody(split.body === 100 ? null : 100);" [direction]="'vertical'">
+
+  <as-split-area [size]="split.list" style="overflow-y: hidden;">
+    <app-commission-title></app-commission-title>
+
+    <div style="height: calc(100% - 60px) !important; overflow-y: auto !important;">
+      <div *ngFor="let commission of commissionList" (click)="selectCommission(commission)">
+        <app-commission-header [commission]="commission" [color]="getHeaderColor(commission)">
+        </app-commission-header>
+        <mat-divider></mat-divider>
+      </div>
+    </div>
+  </as-split-area>
+
+  <as-split-area *ngIf="split.body > 0" [size]="split.body" class="mat-elevation-z8" style="overflow-y: hidden;">
+    <app-commission-header [commission]="selected" (click)="selectCommission()" size="70px" [elevation]="true">
+    </app-commission-header>
+    <app-commission-body [commission]="selected" style="overflow-y: auto;"></app-commission-body>
+  </as-split-area>
+
+</as-split>
+
+<app-standard-empty *ngIf="commissionList.length === 0"></app-standard-empty>
+
+<app-standard-spinner class="hf-abs-100" *ngIf="loading"></app-standard-spinner>

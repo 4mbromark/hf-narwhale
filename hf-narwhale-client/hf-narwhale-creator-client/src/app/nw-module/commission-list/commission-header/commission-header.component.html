@@ -1,0 +1,53 @@
+<!-- <div class="hf-w100 hf-flex-center nw-commission-header">
+  <app-header-status [commission]="commission" ></app-header-status>
+
+  <span class="hf-spacer"></span>
+
+  <app-header-customer></app-header-customer>
+
+  <span class="hf-spacer"></span>
+
+  <app-header-description [commission]="commission"></app-header-description>
+
+  <span class="hf-spacer"></span>
+  <span class="hf-spacer"></span>
+  <span class="hf-spacer"></span>
+
+  <app-header-monitor></app-header-monitor>
+
+  <span class="hf-spacer"></span>
+
+  <app-header-actions></app-header-actions>
+
+  <span class="hf-spacer"></span>
+</div>  -->
+
+<div matRipple class="hf-w100 hf-noselect nw-commission-header" [ngClass]="{ 'mat-elevation-z2': elevation }" [style.backgroundColor]="color">
+  <mat-grid-list cols="9" [rowHeight]="size">
+    <mat-grid-tile colspan="2">
+      <app-header-status [commission]="commission"></app-header-status>
+      <app-header-priority [commission]="commission"></app-header-priority>
+      <app-header-type [commission]="commission"></app-header-type>
+    </mat-grid-tile>
+
+<!--<mat-grid-tile colspan="1">
+      <app-header-priority [commission]="commission"></app-header-priority>
+    </mat-grid-tile>
+
+    <mat-grid-tile colspan="1">
+      <app-header-type [commission]="commission"></app-header-type>
+    </mat-grid-tile> -->
+
+    <mat-grid-tile colspan="2">
+      <app-header-customer *ngIf="commission.idCustomer" [commission]="commission"></app-header-customer>
+    </mat-grid-tile>
+
+    <mat-grid-tile colspan="3">
+      <app-header-description class="hf-w100" [commission]="commission"></app-header-description>
+    </mat-grid-tile>
+
+    <mat-grid-tile colspan="2">
+      <app-header-time class="hf-w100" [commission]="commission"></app-header-time>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

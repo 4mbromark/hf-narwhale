@@ -1,0 +1,20 @@
+<div class="hf-center">
+  <div class="hf-row hf-m10">
+    <button mat-button class="hf-noradius nw-button">
+      <fa-icon icon="sync-alt" size="lg"></fa-icon>
+    </button>
+  </div>
+</div>
+
+<mat-divider class="hf-w100"></mat-divider>
+
+<div class="hf-column hf-center hf-m15">
+  <div class="hf-m10" style="text-align: center;">
+    <span style="width: 90%; word-wrap: break-word; font-size: medium;">{{ commission.description }}</span>
+  </div>
+  <div class="hf-row hf-m10">
+    <app-standard-commission-status-chip class="hf-m10" [value]="commission.status"></app-standard-commission-status-chip>
+    <app-standard-commission-priority-chip class="hf-m10" *ngIf="commission.priority" [value]="commission.priority"></app-standard-commission-priority-chip>
+    <app-standard-commission-type-chip class="hf-m10" [value]="commission.type"></app-standard-commission-type-chip>
+  </div>
+</div>

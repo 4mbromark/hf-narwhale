@@ -1,0 +1,206 @@
+{
+  "login": {
+    "form": {
+      "username": {
+        "text": "Nome utente / email"
+      },
+      "password": {
+        "text": "Password",
+        "show": "Mostra password",
+        "hide": "Nascondi password"
+      }
+    },
+    "error": {
+      "unauthorized": "Credenziali errate.",
+      "notfound": "Nome utente o email non registrati.",
+      "unknow": "Errore nel login. Contattare l'amministratore."
+    }
+  },
+  "common": {
+    "display-error": {
+      "config": {
+        "401": {
+          "title": "Disconnesso",
+          "description": "La sessione è scaduta. Esegui nuovamente l'accesso per continuare ad utilizzare le funzionalità di Narwhale"
+        },
+        "500": {
+          "title": "Errore interno al server",
+          "description": "Si è verificato un errore sconosciuto. Per favore, ricarica la pagina per tornare ad utilizzare Narwhale"
+        }
+      },
+      "button": {
+        "reload": {
+          "title": "Ricarica"
+        }
+      }
+    }
+  },
+  "topbar": {
+    "user-menu": {
+      "button": {
+        "logout": {
+          "title": "Logout",
+          "tooltip": "Esci da Narwhale"
+        }
+      }
+    }
+  },
+  "navbar": {
+    "button": {
+      "dashboard": {
+        "title": "Dashboard",
+        "tooltip": "Dashboard"
+      },
+      "commission-list": {
+        "title": "Commissioni",
+        "tooltip": "Elenco commissioni"
+      },
+      "commission-archive": {
+        "title": "Archivio",
+        "tooltip": "Archivio delle commissioni"
+      },
+      "templates": {
+        "title": "Tipi",
+        "tooltip": "Tipi di commissione"
+      },
+      "customers": {
+        "title": "Clienti",
+        "tooltip": "I tuoi clienti"
+      }
+    }
+  },
+  "toolbar": {
+    "list": {
+      "status": {
+        "waiting": "In attesa / Sospesi",
+        "evaluation": "In valutazione",
+        "payment": "Pagamenti",
+        "ok": "Accettati / Completati",
+        "progress": "In lavorazione",
+        "deliver": "Da spedire / Da inviare",
+        "error": "Rifiutati / Cancellati"
+      }
+    },
+    "new-commission": {
+
+    }
+  },
+  "commission": {
+    "type": {
+      "customer": {
+        "name": "Ricevuta",
+        "description": "Commissione ricevuta direttamente dal cliente"
+      },
+      "personal": {
+        "name": "Autocommissione",
+        "description": "Commissione da utilizzare come promemoria per un lavoro privato"
+      },
+      "pre-agreed": {
+        "name": "Preconcordata",
+        "description": "Commissione i cui dettagli sono già stati accordati con il cliente"
+      },
+      "manual": {
+        "name": "Manuale",
+        "description": "Commissione che non prevede l'interazione con il cliente finale"
+      }
+    },
+    "priority": {
+      "higher": {
+        "name": "Urgente"
+      },
+      "high": {
+        "name": "Alta"
+      },
+      "medium": {
+        "name": "Media"
+      },
+      "low": {
+        "name": "Bassa"
+      },
+      "lower": {
+        "name": "Futile"
+      }
+    },
+    "status": {
+      "details": {
+        "added": {
+          "title": "Commissione creata",
+          "description": "Hai inserito la commissione"
+        },
+        "added-customer": {
+          "title": "Commissione ricevuta",
+          "description": "Il cliente ti ha inviato la commissione"
+        },
+        "in-evaluation": {
+          "title": "In valutazione",
+          "description": "Commissione in valutazione",
+          "action": "Valuta"
+        },
+        "request-accepted": {
+          "title": "Accettato",
+          "description": "Hai accettato la commissione",
+          "action": "Accetta"
+        },
+        "request-accepted-customer": {
+          "title": "Accettato dal cliente",
+          "description": "Il cliente ha accettato la commissione",
+          "action": "Accettata"
+        },
+        "request-refused": {
+          "title": "Rifiutato",
+          "description": "Hai rifiutato la commissione",
+          "action": "Rifiuta"
+        },
+        "request-refused-customer": {
+          "title": "Rifiutato dal cliente",
+          "description": "Il cliente ha rifiutato la commissione",
+          "action": "Rifiutata"
+        },
+        "progress": {
+          "title": "In lavorazione",
+          "description": "Commissione attualmente in lavorazione",
+          "action": "Lavora"
+        },
+        "suspended": {
+          "title": "Sospeso",
+          "description": "Commissione momentaneamente sospesa",
+          "action": "Sospendi"
+        },
+        "finished": {
+          "title": "Terminato",
+          "description": "Lavorazione della commissione terminata",
+          "action": "Finisci"
+        },
+        "canceled": {
+          "title": "Cancellato",
+          "description": "Hai annullato la commissione",
+          "action": "Cancella"
+        },
+        "canceled-customer": {
+          "title": "Cancellato dal cliente",
+          "description": "Il cliente ha annullato la commissione",
+          "action": "Cancellata"
+        },
+        "completed": {
+          "title": "Completato",
+          "description": "Commissione completata con successo",
+          "action": "Completa"
+        }
+      }
+    }
+  },
+  "commission-list": {
+    "commission-body": {
+      "section-selector": {
+        "order": "Ordine",
+        "customer": "Cliente",
+        "recap": "Riepilogo",
+        "actions": "Azioni",
+        "payment": "Pagamento",
+        "messages": "Messaggi",
+        "notes": "Note",
+        "resources": "Risorse"
+      }
+    }
+  }
+}

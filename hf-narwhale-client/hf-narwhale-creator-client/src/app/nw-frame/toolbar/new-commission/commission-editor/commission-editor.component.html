@@ -1,0 +1,72 @@
+<mat-horizontal-stepper linear #stepper>
+  <mat-step>
+    <form class="hf-column">
+      <ng-template matStepLabel>Generali</ng-template>
+      <mat-form-field class="hf-m20">
+        <input matInput [(formControl)]="titleControl" type="text" maxlength="40" placeholder="Titolo" autocomplete="off" required>
+      </mat-form-field>
+      <mat-form-field class="hf-m20" style="width: 400px;">
+        <textarea matInput [(formControl)]="descriptionControl" type="text" rows="10" maxlength="1000" placeholder="Descrizione"
+          style="resize: none;" autocomplete="off" required></textarea>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step *ngIf="commissionType !== commissionTypeValues.PERSONAL">
+    <form class="hf-column">
+      <ng-template matStepLabel>Dettagli</ng-template>
+      <mat-form-field class="hf-m20">
+        <input matInput [(formControl)]="priorityControl" type="text" placeholder="Priorità" autocomplete="off" required>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step *ngIf="commissionType !== commissionTypeValues.PERSONAL">
+    <form class="hf-column">
+      <ng-template matStepLabel>Ordine</ng-template>
+      <mat-form-field class="hf-m20">
+        <input matInput [matDatepicker]="picker" [(formControl)]="deadlineControl" type="date" placeholder="Consegna" autocomplete="off" required>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field class="hf-m20">
+        <span matPrefix>€&nbsp;</span>
+        <input matInput [(formControl)]="paymentControl" type="number" placeholder="Costo" autocomplete="off" required>
+      </mat-form-field>
+      <mat-form-field class="hf-m20">
+        <span matPrefix>€&nbsp;</span>
+        <input matInput [(formControl)]="paymentAdvanceControl" type="number" placeholder="Anticipo" autocomplete="off" required>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step *ngIf="commissionType !== commissionTypeValues.PERSONAL">
+    <form>
+      <ng-template matStepLabel>Cliente</ng-template>
+      <mat-form-field appearance="fill">
+        <mat-label>Address</mat-label>
+        <input matInput placeholder="Ex. 1 Main St, New York, NY" required>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <form>
+      <ng-template matStepLabel>Cliente</ng-template>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="setCommission();">Fine</button>
+      </div>
+    </form>
+  </mat-step>
+</mat-horizontal-stepper>

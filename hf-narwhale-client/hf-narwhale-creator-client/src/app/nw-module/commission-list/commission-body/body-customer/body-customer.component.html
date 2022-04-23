@@ -1,0 +1,30 @@
+<div class="hf-center">
+  <div class="hf-row hf-m10">
+    <button mat-button class="hf-noradius nw-button" (click)="loadData();">
+      <fa-icon icon="sync-alt" size="lg"></fa-icon>
+    </button>
+  </div>
+</div>
+
+<mat-divider class="hf-w100"></mat-divider>
+<app-standard-progress-bar [show]="loading"></app-standard-progress-bar>
+
+<div *ngIf="isOk();" class="hf-column hf-m15" [ngClass]="{ 'nw-disabled': loading }">
+  <div class="hf-center">
+    <div class="hf-row">
+      <div class="hf-p15 nw-commission-customer-card">
+        <app-standard-commission-customer-card [user]="user"></app-standard-commission-customer-card>
+      </div>
+      <div class="hf-p15">
+        <div class="hf-column">
+          <mat-slide-toggle class="hf-m5">Nome</mat-slide-toggle>
+          <mat-slide-toggle class="hf-m5">Cognome</mat-slide-toggle>
+          <mat-slide-toggle class="hf-m5">Data di nascita</mat-slide-toggle>
+          <mat-slide-toggle class="hf-m5">Indirizzo email</mat-slide-toggle>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-standard-empty-text *ngIf="isEmpty();" [text]="'Non c\'è nessun cliente qui :['"></app-standard-empty-text>

@@ -1,0 +1,46 @@
+<div *ngIf="user" (click)="$event.stopPropagation();">
+  <div class="hf-row">
+    <!--<img src="assets/user-image.png" style="height: 70px; width: 70px;">-->
+    <fa-icon icon="user-circle" size="5x" style="color: var(--nw-main-color); margin-right: 15px;"></fa-icon>
+    <div class="hf-column hf-center hf-m5" style="margin-right: 20px;">
+      <div class="hf-w100 hf-row nw-commission-customer-card-name" *ngIf="user.firstName || user.lastName">
+        <span *ngIf="user.firstName">{{ user.firstName }}</span>
+        <span *ngIf="user.firstName && user.lastName">&nbsp;</span>
+        <span *ngIf="user.lastName">{{ user.lastName }}</span>
+      </div>
+      <div class="hf-w100 hf-row" *ngIf="user.username">
+        <span [ngClass]="{ 'nw-commission-customer-card-name': !user.firstName && !user.lastName, 'nw-commission-customer-card-username': user.firstName || user.lastName }">@{{ user.username }}</span>
+      </div>
+      <div class="hf-w100 hf-row" *ngIf="!user.username">
+        <span class="nw-commission-customer-card-name">{{ user.emailAddress }}</span>
+      </div>
+      <div class="hf-w100 hf-row hf-noselect" *ngIf="!user.username">
+        <span class="nw-chip-small nw-commission-customer-card-unregistered-warning">
+          <fa-icon icon="times" size="sm" style="margin-right: 10px;"></fa-icon>
+          utente non registrato
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="hf-column nw-commission-customer-card-info" *ngIf="user.username">
+    <div class="hf-row hf-m5">
+      <div class="hf-center nw-commission-customer-card-info-icon">
+        <fa-icon icon="birthday-cake" size="lg"></fa-icon>
+      </div>
+      <div>
+        <span *ngIf="user.birthDate">{{ user.birthDate | date:'dd/MM/yyyy' }}</span>
+        <span class="hf-noselect" *ngIf="!user.birthDate">Informazione non condivisa</span>
+      </div>
+    </div>
+    <div class="hf-row hf-m5">
+      <div class="hf-center nw-commission-customer-card-info-icon">
+        <fa-icon icon="envelope" size="lg"></fa-icon>
+      </div>
+      <div>
+        <span *ngIf="user.emailAddress">{{ user.emailAddress }}</span>
+        <span class="hf-noselect" *ngIf="!user.emailAddress">Informazione non condivisa</span>
+      </div>
+    </div>
+  </div>
+
+</div>

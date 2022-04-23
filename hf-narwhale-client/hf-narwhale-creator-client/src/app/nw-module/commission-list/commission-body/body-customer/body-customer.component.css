@@ -1,0 +1,6 @@
+.nw-commission-customer-card {
+  transition: var(--hf-transition-base);
+}
+.nw-commission-customer-card:hover {
+  background-color: var(--nw-hover-color);
+}

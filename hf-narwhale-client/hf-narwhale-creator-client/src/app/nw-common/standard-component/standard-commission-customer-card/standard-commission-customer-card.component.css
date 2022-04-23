@@ -1,0 +1,22 @@
+.nw-commission-customer-card-name {
+  font-size: large;
+  font-weight: 500;
+}
+
+.nw-commission-customer-card-username {
+  font-size: 15px;
+}
+
+.nw-commission-customer-card-unregistered-warning {
+  background-color: darkorange;
+}
+
+.nw-commission-customer-card-info {
+  margin-top: 20px;
+  margin-right: 15px;
+}
+
+.nw-commission-customer-card-info-icon {
+  width: 45px;
+  color: gray;
+}

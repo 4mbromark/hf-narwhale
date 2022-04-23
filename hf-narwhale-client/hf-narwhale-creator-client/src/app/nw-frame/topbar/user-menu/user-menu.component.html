@@ -1,0 +1,14 @@
+<button *ngIf="user" mat-button [matMenuTriggerFor]="userMenu" class="nw-user-menu">
+  {{ user.firstName + ' ' + user.lastName }}
+  <fa-icon icon="user-circle" size="lg" style="margin-left: 10px;"></fa-icon>
+</button>
+
+<mat-menu #userMenu="matMenu" class="hf-m0 hf-p0">
+  <button mat-menu-item class="nw-user-menu-button" *ngFor="let button of userMenuButtons" (click)="performButtonAction(button);"
+    [matTooltip]="button.tooltip | translate" matTooltipPosition="before">
+    <button mat-icon-button>
+      <fa-icon [icon]="button.icon" size="lg"></fa-icon>
+    </button>
+    <span>{{ button.title | translate }}</span>
+  </button>
+</mat-menu>

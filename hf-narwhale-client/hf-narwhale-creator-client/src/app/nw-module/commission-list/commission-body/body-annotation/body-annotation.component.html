@@ -1,0 +1,76 @@
+<div class="hf-center">
+  <div class="hf-row hf-m10">
+    <button mat-button class="hf-noradius nw-button" (click)="startInsertProcedure();" [disabled]="loading || editing">
+      <fa-icon icon="plus" size="lg" style="margin-right: 10px;"></fa-icon>
+      Aggiungi annotazione
+    </button>
+    <div class="nw-commission-filter-container">
+      <fa-icon class="hf-m15" icon="filter" size="sm" style="color: dimgrey;"></fa-icon>
+      <button mat-button class="hf-noradius nw-button" (click)="toggleOrder();">
+        <fa-icon [icon]="order === orderTypeValues.ASCENDING ? 'arrow-down' : 'arrow-up'" size="lg"></fa-icon>
+      </button>
+    </div>
+    <button mat-button class="hf-noradius nw-button" (click)="loadData();">
+      <fa-icon icon="sync-alt" size="lg"></fa-icon>
+    </button>
+  </div>
+</div>
+
+<mat-divider class="hf-w100"></mat-divider>
+<app-standard-progress-bar [show]="loading"></app-standard-progress-bar>
+
+<div *ngIf="isOk();" class="hf-column hf-m15" [ngClass]="{ 'nw-disabled': loading }">
+  <div matRipple *ngFor="let annotation of dataList" class="hf-w100 nw-commission-annotation" (click)="startEditProcedure(annotation);" [style.backgroundColor]="annotation === editing ? 'var(--nw-support-color)' : ''" [matRippleDisabled]="annotation === editing">
+    <div class="hf-w100" *ngIf="annotation !== editing">
+      <div class="hf-w100 hf-center">
+        <div class="hf-center hf-column hf-m10 nw-commission-annotation-text">
+          <div class="hf-row nw-commission-annotation-detail" *ngIf="annotation.id">
+            <span>Creata il: <b>{{ annotation.insertDate | date:'dd/MM/yyyy - HH:mm:ss' }}</b></span>
+            <span *ngIf="annotation.updateDate">, ultimo aggiornamento: <b>{{ annotation.updateDate | date:'dd/MM/yyyy - HH:mm:ss' }}</b></span>
+          </div>
+          <div class="hf-w100 hf-m5">{{ annotation.text }}</div>
+        </div>
+        <div>
+          <button mat-button class="hf-noradius nw-button" [cdkCopyToClipboard]="annotation.text" (click)="$event.stopPropagation();">
+            Copia nota
+            <fa-icon icon="copy" size="lg" style="margin-left: 10px;"></fa-icon>
+          </button>
+          <button mat-icon-button class="hf-noradius nw-button" *ngIf="annotation !== editing"
+            (click)="startEditProcedure(annotation); $event.stopPropagation();" [disabled]="editing">
+            <fa-icon icon="edit" size="lg"></fa-icon>
+          </button>
+          <button mat-icon-button class="hf-noradius nw-button" (click)="delete(annotation); $event.stopPropagation();" [disabled]="editing">
+            <fa-icon icon="trash" size="lg"></fa-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="hf-w100" *ngIf="annotation === editing">
+      <div class="hf-w100 hf-center">
+        <mat-form-field class="hf-m10 nw-commission-annotation-text">
+          <textarea matInput [(ngModel)]="editing.text" type="text" rows="auto" style="resize: vertical;"
+            autocomplete="off" required></textarea>
+        </mat-form-field>
+        <div>
+          <button mat-icon-button class="hf-noradius nw-button"
+            (click)="editing.id ? update() : insert(); $event.stopPropagation();" [disabled]="!editing.text">
+            <fa-icon icon="check" size="lg"></fa-icon>
+          </button>
+          <button mat-icon-button class="hf-noradius nw-button" (click)="undo(); $event.stopPropagation();">
+            <fa-icon icon="times" size="lg"></fa-icon>
+          </button>
+          <button mat-icon-button class="hf-noradius nw-button" (click)="delete(annotation); $event.stopPropagation();">
+            <fa-icon icon="trash" size="lg"></fa-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-standard-empty-text *ngIf="isEmpty();" [text]="'Non c\'è nessuna annotazione qui :['"></app-standard-empty-text>
+
+<!-- <app-standard-empty *ngIf="isEmpty();" [text]="'Non c\'è nessuna annotazione qui'"></app-standard-empty>
+ -->
+<!-- <app-standard-spinner *ngIf="isNull();"></app-standard-spinner>
+ -->

@@ -1,0 +1,32 @@
+.nw-commission-resource {
+  margin-bottom: 5px;
+  transition: var(--hf-transition-base);
+}
+.nw-commission-resource:hover {
+  background-color: var(--nw-hover-color);
+  cursor: pointer;
+}
+
+.nw-commission-resource-name, .nw-commission-resource-link {
+  text-align: center;
+  word-wrap: break-word;
+}
+.nw-commission-resource-name {
+  width: 15%;
+  font-size: large;
+}
+.nw-commission-resource-link {
+  width: 45%;
+  font-size: medium;
+}
+
+.nw-commission-resource-detail {
+  text-align: center;
+  word-wrap: break-word;
+  font-size: small;
+  margin-top: 5px;
+}
+
+.mat-ripple-element{
+  display: none !important;
+}

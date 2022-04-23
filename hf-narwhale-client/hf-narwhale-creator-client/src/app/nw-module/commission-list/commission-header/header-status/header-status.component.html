@@ -1,0 +1,20 @@
+<div *ngIf="commission && commission.status" class="nw-chip-selectable" [matMenuTriggerFor]="statusMenu"
+  (click)="$event.stopPropagation();">
+  <!--<div class="nw-commission-header-status-icon">
+    <fa-icon [icon]="statusDetail.icon" size="lg"></fa-icon>
+  </div>
+  <div class="hf-column">
+    <span>{{ statusDetail.title | translate }}</span>-->
+    <!--<div>
+      <fa-icon class="hf-m5" icon="check" size="lg"></fa-icon>
+      <fa-icon class="hf-m5" icon="reply" size="lg"></fa-icon>
+      <fa-icon class="hf-m5" icon="times" size="lg"></fa-icon>
+    </div>-->
+  <!--</div>-->
+  <app-standard-commission-status-chip [value]="commission.status" size="small" [text]="false"></app-standard-commission-status-chip>
+</div>
+
+
+<mat-menu #statusMenu="matMenu" class="hf-row" [ngSwitch]="commission.status">
+  <app-standard-commission-status-update-menu [commission]="commission"></app-standard-commission-status-update-menu>
+</mat-menu>

@@ -1,0 +1,11 @@
+.nw-commission-status-button, .nw-commission-status-button-disabled {
+  height: 110px;
+}
+
+.nw-commission-status-button {
+  width: 100px;
+}
+
+.nw-commission-status-button-disabled {
+  width: 150px;
+}

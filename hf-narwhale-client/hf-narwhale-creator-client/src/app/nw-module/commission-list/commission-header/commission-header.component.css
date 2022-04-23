@@ -1,0 +1,8 @@
+.nw-commission-header {
+  cursor: pointer;
+  transition: var(--hf-transition-base);
+}
+
+.nw-commission-header:hover {
+  background-color: var(--nw-hover-color);
+}

@@ -1,0 +1,23 @@
+.nw-navbar-button {
+  color: var(--nw-main-color);
+  height: 40px;
+  min-width: unset !important;
+  color: dimgrey;
+}
+.nw-navbar-button:hover {
+  color: black;
+  background-color: var(--nw-support-color);
+}
+
+.nw-navbar-button-selected {
+  color: var(--nw-main-color);
+  border-right: 3px solid var(--nw-main-color);
+}
+
+/* .nw-navbar-button-selected {
+  color: var(--nw-main-color);
+  border-left: 2px solid var(--nw-main-color);
+  border-right: 2px solid var(--nw-main-color);
+  background-color: var(--nw-main-color);
+  color: white
+} */

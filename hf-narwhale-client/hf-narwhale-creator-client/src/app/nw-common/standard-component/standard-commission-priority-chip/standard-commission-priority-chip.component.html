@@ -1,0 +1,9 @@
+<div class="hf-noselect"> <!--[matTooltip]="statusDetail.description | translate" matTooltipPosition="below"-->
+  <div *ngIf="detail" class="hf-left" [ngClass]="{ 'nw-chip-small': size === 'small', 'nw-chip-medium': size === 'medium' }"  [style.backgroundColor]="detail.color">
+    <div [ngClass]="{ 'hf-center': !text, 'nw-chip-icon-small': size === 'small', 'nw-chip-icon-medium': size === 'medium' }">
+      <fa-icon [icon]="detail.icon" [size]="size === 'small' ? 'sm' : 'lg'"></fa-icon>
+    </div>
+    <span *ngIf="text" [style.fontSize]="size">{{ detail.title | translate }}</span>
+  </div>
+  <span *ngIf="!detail"></span>
+</div>

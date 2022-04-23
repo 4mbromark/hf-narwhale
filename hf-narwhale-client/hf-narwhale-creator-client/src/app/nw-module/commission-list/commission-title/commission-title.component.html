@@ -1,0 +1,23 @@
+<div class="hf-row nw-commission-bar mat-elevation-z1" style="height: 60px;">
+  <div class="hf-row hf-left hf-p20 nw-commission-title">
+    <div class="nw-commission-title-text">Commissioni</div>
+    <fa-icon class="hf-m10 nw-commission-title-icon" icon="chevron-down" size="lg"></fa-icon>
+  </div>
+  <div class="hf-row hf-center hf-m20">
+    <button mat-icon-button class="nw-commission-title-status-button" *ngFor="let button of statusFiltersButtons"
+      (click)="setCommissionStatusFilter(button);">
+      <fa-icon [icon]="button.selected ? 'check-circle' : 'circle'" size="lg" [style.color]="button.color"
+        [matTooltip]="button.tooltip | translate" matTooltipPosition="below"></fa-icon>
+    </button>
+  </div>
+  <span class="hf-spacer"></span>
+  <div class="hf-row hf-right hf-m20">
+    <button mat-button class="hf-noradius nw-button" (click)="openNewCommissionDialog();">
+      <fa-icon icon="plus" size="lg" style="margin-right: 10px;"></fa-icon>
+      Nuova commissione
+    </button>
+    <button mat-button class="hf-noradius nw-button" (click)="refresh();">
+      <fa-icon icon="sync-alt" size="lg"></fa-icon>
+    </button>
+  </div>
+</div>

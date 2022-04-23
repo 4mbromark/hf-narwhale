@@ -1,0 +1,14 @@
+.nw-display-error-title {
+  font-size: 25px;
+  color: var(--nw-main-color);
+}
+
+.nw-display-error-description {
+  font-size: 15px;
+  word-wrap: break-word;
+  margin: 15px 0px;
+}
+
+.nw-display-error-icon {
+  color: var(--nw-main-color);
+}

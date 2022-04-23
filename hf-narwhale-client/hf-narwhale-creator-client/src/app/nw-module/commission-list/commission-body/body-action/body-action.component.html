@@ -1,0 +1,47 @@
+<div class="hf-center">
+  <div class="hf-row hf-m10">
+    <div class="nw-commission-filter-container">
+      <fa-icon class="hf-m15" icon="filter" size="sm" style="color: dimgrey;"></fa-icon>
+      <button mat-button class="hf-noradius nw-button" (click)="toggleOrder();">
+        <fa-icon [icon]="order === orderTypeValues.ASCENDING ? 'arrow-down' : 'arrow-up'" size="lg"></fa-icon>
+      </button>
+    </div>
+    <button mat-button class="hf-noradius nw-button" (click)="loadData();">
+      <fa-icon icon="sync-alt" size="lg"></fa-icon>
+    </button>
+  </div>
+</div>
+
+<mat-divider class="hf-w100"></mat-divider>
+<app-standard-progress-bar [show]="loading"></app-standard-progress-bar>
+
+<div *ngIf="isOk();" class="hf-column hf-m15" [ngClass]="{ 'nw-disabled': loading }" style="overflow-y: auto !important;">
+  <div matRipple *ngFor="let action of dataList" class="hf-w100 nw-commission-action">
+      <div class="hf-w100 hf-center hf-row hf-m10"> <!-- [style.background]="isStatusError(action.status) ? errorBackgroundColorValue : ''" -->
+        <span class="hf-row hf-right nw-commission-action-detail" [ngSwitch]="action.type">
+          <span *ngSwitchCase="commissionActionTypeValues.STATUS" class="nw-commission-action-detail-chip">
+            <app-standard-commission-status-chip [value]="action.detail" size="small"></app-standard-commission-status-chip>
+          </span>
+          {{ action.insertDate | date:'dd/MM/yyyy - HH:mm:ss' }}
+        </span>
+        <span class="hf-center nw-commission-action-icon" [ngSwitch]="action.type">
+          <fa-icon *ngSwitchCase="commissionActionTypeValues.STATUS" [icon]="getStatus(action.detail).icon" size="lg" [style.color]="(isStatusSuccess(action.detail) || isStatusError(action.detail)) ? getStatus(action.detail).color : ''"></fa-icon>
+          <fa-icon *ngSwitchCase="commissionActionTypeValues.ORDER" [icon]="'arrow-right'" size="lg"></fa-icon>
+          <fa-icon *ngSwitchCase="commissionActionTypeValues.PRIORITY" [icon]="getPriority(action.detail).icon" size="lg" [style.color]="getPriority(action.detail).color"></fa-icon>
+        </span>
+        <span class="nw-commission-action-description" [ngSwitch]="action.type">
+          <span *ngSwitchCase="commissionActionTypeValues.STATUS">{{ getStatus(action.detail).description | translate }}</span>
+          <span *ngSwitchCase="commissionActionTypeValues.ORDER">{{ action.detail | translate }}</span>
+          <span *ngSwitchCase="commissionActionTypeValues.PRIORITY" class="hf-row hf-left">
+            <span style="margin-right: 10px">Priorità impostata a</span>
+            <app-standard-commission-priority-chip [value]="action.detail" size="small"></app-standard-commission-priority-chip>
+          </span>
+        </span>
+      </div>
+  </div>
+</div>
+
+<app-standard-empty *ngIf="isEmpty();" [text]="'Non c\'è nessuna azione qui'"></app-standard-empty>
+
+<!-- <app-standard-spinner *ngIf="isNull();"></app-standard-spinner>
+ -->

@@ -1,0 +1,3 @@
+<div *ngIf="commission && commission.customerData" class="nw-chip-selectable" (click)="$event.stopPropagation();">
+  <app-standard-commission-customer-chip [value]="commission.customerData"></app-standard-commission-customer-chip>
+</div>

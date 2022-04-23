@@ -1,0 +1,25 @@
+<div class="hf-column hf-flex-center hf-m20">
+  <div class="hf-row hf-flex-center">
+    <span class="hf-m20" style="font-size: medium;">Riepilogo commissione</span>
+    <fa-icon [icon]="commissionType.icon" size="3x"></fa-icon>
+    <span class="hf-m20" style="font-size: large;">{{ commissionType.title | translate }}</span>
+  </div>
+</div>
+<div class="hf-row hf-flex-center hf-m10">
+  <button mat-button class="nw-new-commission-status-button"
+    *ngFor="let button of statusButtonList" (click)="selectButton(button);" [style.background]="button.tag === selectedButton.tag ? 'var(--nw-support-color)' : ''" [style.color]="button.tag === selectedButton.tag ? button.statusDetail.color : ''">
+    <div class="hf-column hf-flex-center">
+      <div>
+        <fa-icon [icon]="button.statusDetail.icon" size="3x"></fa-icon>
+      </div>
+
+      <span>{{ button.statusDetail.title | translate }}</span>
+    </div>
+  </button>
+</div>
+<div class="hf-flex-center hf-m20">
+  <button mat-raised-button class="hf-noradius nw-button-filled" (click)="setStatus();">
+    {{ 'Inserisci commissione come ' + (selectedButton.statusDetail.title | translate).toUpperCase()}}
+  </button>
+</div>
+

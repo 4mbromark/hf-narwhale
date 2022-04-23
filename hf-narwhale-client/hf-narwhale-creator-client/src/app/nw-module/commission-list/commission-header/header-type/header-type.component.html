@@ -1,0 +1,8 @@
+<!-- <div class="nw-chip-selectable" (click)="$event.stopPropagation();">
+  <fa-icon *ngIf="typeDetail" [icon]="typeDetail.icon" size="lg" style="color: gray;"></fa-icon>
+</div>
+ -->
+
+<button mat-icon-button (click)="$event.stopPropagation();" style="margin: 5px 10px">
+  <fa-icon *ngIf="typeDetail" [icon]="typeDetail.icon" size="lg" style="color: gray;"></fa-icon>
+</button>

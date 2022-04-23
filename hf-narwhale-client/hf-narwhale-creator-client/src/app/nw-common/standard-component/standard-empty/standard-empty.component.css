@@ -1,0 +1,12 @@
+.nw-standard-empty {
+  color: var(--nw-main-color);
+}
+
+.nw-standard-empty-emote {
+  font-size: 60px;
+  margin: 40px;
+}
+
+.nw-standard-empty-text {
+  font-size: large;
+}

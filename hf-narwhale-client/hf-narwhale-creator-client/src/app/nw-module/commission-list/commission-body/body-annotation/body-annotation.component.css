@@ -1,0 +1,22 @@
+.nw-commission-annotation {
+  margin-bottom: 5px;
+  transition: var(--hf-transition-base);
+}
+.nw-commission-annotation:hover {
+  background-color: var(--nw-hover-color);
+  cursor: pointer;
+}
+
+.nw-commission-annotation-text {
+  text-align: center;
+  width: 70%;
+  word-wrap: break-word;
+  font-size: medium;
+}
+
+.nw-commission-annotation-detail {
+  text-align: center;
+  word-wrap: break-word;
+  font-size: small;
+  margin-top: 5px;
+}

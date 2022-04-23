@@ -1,0 +1,24 @@
+.nw-commission-action {
+  margin-bottom: 5px;
+  transition: var(--hf-transition-base);
+}
+.nw-commission-action:hover {
+  background-color: var(--nw-hover-color);
+}
+
+.nw-commission-action-detail {
+  width: 49%; text-align: right;
+}
+
+.nw-commission-action-detail-chip {
+  margin-right: 20px; text-align: left;
+}
+
+.nw-commission-action-icon {
+  width: 70px;
+}
+
+.nw-commission-action-description {
+  width: 49%;
+  font-size: medium;
+}

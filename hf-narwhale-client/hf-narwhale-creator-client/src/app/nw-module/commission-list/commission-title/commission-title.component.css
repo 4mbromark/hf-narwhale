@@ -1,0 +1,33 @@
+.nw-commission-title {
+  transition: var(--hf-transition-base);
+}
+.nw-commission-title:hover {
+  cursor: pointer;
+  background-color: var(--nw-hover-color);
+}
+
+.nw-commission-title-text {
+  font-size: 20px;
+  color: var(--nw-main-color);
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.nw-commission-title-icon {
+  color: gray;
+  padding-top: 5px;
+}
+
+.nw-commission-column-header-text {
+  font-size: large;
+  color: var(--nw-main-color);
+  font-weight: 500;
+  margin: 5px 15px;
+}
+
+.nw-commission-title-status-button {
+  width: 30px;
+  height: 30px;
+  line-height: 0px !important;
+  transition: all 0.2s ease-in-out 0s;
+}

@@ -1,0 +1,55 @@
+<div class="hf-center">
+  <div class="hf-row hf-m10">
+    <button mat-button class="hf-noradius nw-button" style="margin-right: 20px;">
+      <fa-icon icon="tasks" size="lg" style="margin-right: 10px;"></fa-icon>
+      Valuta
+    </button>
+    <button mat-button class="hf-noradius nw-button">
+      <fa-icon icon="paper-plane" size="lg" style="margin-right: 10px;"></fa-icon>
+      Invia proposta
+    </button>
+    <div class="nw-commission-filter-container">
+      <fa-icon class="hf-m15" icon="filter" size="sm" style="color: dimgrey;"></fa-icon>
+      <button mat-button class="hf-noradius nw-button" (click)="toggleOrder();">
+        <fa-icon [icon]="order === orderTypeValues.ASCENDING ? 'arrow-down' : 'arrow-up'" size="lg"></fa-icon>
+      </button>
+
+      <button mat-icon-button class="hf-noradius nw-button">
+        <fa-icon icon="arrow-circle-right" size="lg"></fa-icon>
+      </button>
+      <button mat-icon-button class="hf-noradius nw-button">
+        <fa-icon icon="arrow-circle-left" size="lg"></fa-icon>
+      </button>
+    </div>
+    <button mat-button class="hf-noradius nw-button" (click)="loadData();">
+      <fa-icon icon="sync-alt" size="lg"></fa-icon>
+    </button>
+  </div>
+</div>
+
+<mat-divider class="hf-w100"></mat-divider>
+<app-standard-progress-bar [show]="loading"></app-standard-progress-bar>
+
+<div *ngIf="isOk();" class="hf-column hf-m15" [ngClass]="{ 'nw-disabled': loading }">
+  <div class="hf-row">
+    <div class="hf-m10" style="width: 40%;">
+      <div matRipple class="hf-right hf-noselect nw-commission-order" *ngFor="let order of dataList" [ngClass]="{ 'nw-commission-order-selected': order === selected }" (click)="select(order);">
+        <span class="nw-commission-order-status" *ngIf="order.status">
+          <app-standard-commission-status-chip [value]="order.status" size="small"></app-standard-commission-status-chip>
+        </span>
+        <span class="nw-commission-order-title">
+          Proposta del
+          <b>{{ order.insertDate | date:'dd/MM/yyyy - HH:mm:ss' }}</b>
+        </span>
+        <fa-icon [icon]="order.direction === userDirectionValues.CUSTOMER_TO_CREATOR ? 'arrow-left' : 'arrow-right'" size="2x" style="margin: 20px 40px"></fa-icon>
+      </div>
+    </div>
+    <div class="hf-m10" style="width: 60%;">
+      <span>{{ selected.deadline }}</span>
+      <span>{{ selected.payment }}</span>
+      <span>{{ selected.paymentAdvance }}</span>
+    </div>
+  </div>
+</div>
+
+<app-standard-empty-text *ngIf="isEmpty();" [text]="'Non c\'è nessun ordine qui :['"></app-standard-empty-text>

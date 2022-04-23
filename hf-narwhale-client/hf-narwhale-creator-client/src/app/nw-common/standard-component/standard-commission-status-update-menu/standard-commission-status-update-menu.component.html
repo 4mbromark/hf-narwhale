@@ -1,0 +1,20 @@
+<div class="hf-noselect">
+  <div *ngIf="updatableStatusList.length > 0">
+    <button mat-button class="hf-center nw-commission-status-button" *ngFor="let button of updatableStatusList" (click)="updateStatus(button.code);">
+      <div style="margin-top: 10px;">
+        <fa-icon [icon]="button.icon" size="2x"></fa-icon>
+      </div>
+
+      <span>{{ button.action | translate }}</span>
+    </button>
+  </div>
+  <div *ngIf="updatableStatusList.length === 0">
+    <button mat-button class="hf-center nw-commission-status-button-disabled" disabled>
+      <div style="margin-top: 10px;">
+        <fa-icon icon="square" size="2x"></fa-icon>
+      </div>
+
+      <span>Nessuna azione</span>
+    </button>
+  </div>
+</div>

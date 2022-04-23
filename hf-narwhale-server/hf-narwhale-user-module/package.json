@@ -1,0 +1,19 @@
+{
+  "name": "hf-narwhale-registry-module",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rimraf dist && tsc",
+    "prepublish": "npm run build"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "hf-ds-module": "file:../../../hf-ds/hf-ds-module",
+    "hf-env-module": "file:../../../hf-axdevtool/modules/nest/hf-env-module",
+    "rimraf": "^3.0.2"
+  }
+}

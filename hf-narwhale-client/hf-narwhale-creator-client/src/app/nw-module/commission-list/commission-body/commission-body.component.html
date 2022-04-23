@@ -1,0 +1,56 @@
+<div class="hf-h100">
+  <mat-button-toggle-group class="hf-w100" appearance="legacy" #sections="matButtonToggleGroup"
+    [value]="sectionValues.RECAP" style="flex-wrap: wrap; padding: 10px 0px;"> <!-- background-color: #ebebeb;-->
+
+    <span class="hf-spacer"></span>
+
+    <mat-button-toggle *ngFor="let section of sectionList" [value]="section.tag">
+      <fa-icon [icon]="section.icon" size="lg" style="margin-right: 10px;"></fa-icon>
+      <span>{{ section.title | translate }}</span>
+    </mat-button-toggle>
+
+    <span class="hf-spacer"></span>
+
+    <!--<mat-button-toggle value="close" style="background-color: red; color: white; font-weight: 500;"
+    title="Chiudi Informazioni">
+    <fa-icon icon="times" size="lg" style="padding-right: 10px;"></fa-icon>
+    <span>Chiudi</span>
+  </mat-button-toggle> -->
+  </mat-button-toggle-group>
+
+  <mat-divider></mat-divider>
+
+  <div class="hf-center" [ngSwitch]="sections.value || sectionValues.RECAP">
+    <section *ngSwitchCase="sectionValues.ORDER" class="hf-100-100">
+      <app-body-order [idCommission]="commission.id"></app-body-order>
+    </section>
+
+    <section *ngSwitchCase="sectionValues.CUSTOMER" class="hf-100-100">
+      <app-body-customer [idCommission]="commission.id"></app-body-customer>
+    </section>
+
+    <section *ngSwitchCase="sectionValues.RECAP" class="hf-100-100">
+      <app-body-recap [commission]="commission"></app-body-recap>
+    </section>
+
+    <section *ngSwitchCase="sectionValues.ACTIONS" class="hf-100-100">
+      <app-body-action [idCommission]="commission.id"></app-body-action>
+    </section>
+
+    <section *ngSwitchCase="sectionValues.PAYMENT" class="hf-100-100">
+
+    </section>
+
+    <section *ngSwitchCase="sectionValues.MESSAGES" class="hf-100-100">
+      <app-body-message></app-body-message>
+    </section>
+
+    <section *ngSwitchCase="sectionValues.NOTES" class="hf-100-100">
+      <app-body-annotation [idCommission]="commission.id"></app-body-annotation>
+    </section>
+
+    <section *ngSwitchCase="sectionValues.RESOURCES" class="hf-100-100">
+      <app-body-resource [idCommission]="commission.id"></app-body-resource>
+    </section>
+  </div>
+</div>

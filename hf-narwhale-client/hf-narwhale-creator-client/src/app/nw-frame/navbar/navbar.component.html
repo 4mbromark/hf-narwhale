@@ -1,0 +1,11 @@
+<div class="hf-100-100 hf-column hf-flex-center">
+  <div class="hf-w100">
+    <button mat-button class="hf-w100 hf-center hf-noradius hf-p0 nw-navbar-button" *ngFor="let button of navbarButtons"
+      [ngClass]="{ 'nw-navbar-button-selected': button === selectedButton }" [routerLink]="button.url"
+      (click)="setSelectedButton(button);" [matTooltip]="button.tooltip | translate" matTooltipPosition="right">
+      <fa-icon [icon]="button.icon" size="lg"></fa-icon>
+    </button>
+  </div>
+
+  <div class="hf-w100"></div>
+</div>

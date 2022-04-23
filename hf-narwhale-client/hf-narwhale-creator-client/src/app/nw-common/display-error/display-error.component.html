@@ -1,0 +1,18 @@
+<div class="hf-100-100 hf-row hf-center hf-noselect">
+  <div class="hf-column hf-center" style="width: 35%;">
+    <fa-icon class="nw-display-error-icon" [icon]="data.config.icon" size="4x"></fa-icon>
+  </div>
+  <div class="hf-column hf-left" style="width: 65%; margin: 15px 15px 15px 0px;">
+    <div class="hf-column">
+      <span class="nw-display-error-title"><b>{{ data.config.title | translate }}</b></span>
+      <span class="nw-display-error-description">{{ data.config.description | translate }}</span>
+    </div>
+
+    <div class="hf-w100 hf-left">
+      <button mat-button class="hf-noradius nw-button" (click)="reload();">
+        <fa-icon icon="redo-alt" size="lg" style="margin-right: 10px;"></fa-icon>
+        {{ ll.ERROR_RELOAD_TITLE | translate }}
+      </button>
+    </div>
+  </div>
+</div>

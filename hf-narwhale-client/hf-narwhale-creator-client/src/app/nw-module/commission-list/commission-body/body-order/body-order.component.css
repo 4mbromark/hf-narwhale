@@ -1,0 +1,20 @@
+.nw-commission-order {
+  margin-bottom: 5px;
+  transition: var(--hf-transition-base);
+}
+.nw-commission-order:hover {
+  background-color: var(--nw-hover-color);
+  cursor: pointer;
+}
+.nw-commission-order-selected {
+  background-color: var(--nw-support-color);
+}
+
+.nw-commission-order-title {
+  font-size: medium;
+}
+
+.nw-commission-order-status {
+  margin-right: 20px;
+  text-align: left;
+}
